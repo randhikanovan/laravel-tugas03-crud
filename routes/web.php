@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/data-tables', function () {
+    return view('data');
+});
+
+Route::get('/items/create', 'ItemController@create'); //menampilkan halaman
+Route::post('/items', 'ItemController@store'); //menyimpan data
+Route::get('/items', 'ItemController@index'); //menampilkan semua
+Route::get('/items/{id}', 'ItemController@show'); //menampilkan detailnya
+Route::get('/items/{id}/edit', 'ItemController@edit'); //menampilkan form edit item
+Route::put('/items/{id}', 'ItemController@update'); //menyimpan perubahan
+Route::delete('/items/{id}', 'ItemController@destroy'); //menghapus data dengan id
